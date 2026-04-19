@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Privacy Policy for the BugMe Chrome Extension." />
+    <title>Privacy Policy — BugMe</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .policy-wrap {
+        max-width: 760px;
+        margin: 40px auto 80px;
+        padding: 0 20px;
+      }
+      .policy-wrap h1 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        margin-bottom: 6px;
+      }
+      .policy-wrap .updated {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        margin: 0 0 36px;
+      }
+      .policy-wrap h2 {
+        font-size: 1.2rem;
+        margin: 32px 0 8px;
+      }
+      .policy-wrap p,
+      .policy-wrap li {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .policy-wrap ul {
+        padding-left: 22px;
+        margin: 8px 0;
+      }
+      .policy-wrap a {
+        color: var(--brand-deep);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="BugMe homepage">
+        <img class="brand-mark" src="./assets/ladybug-bugme.png" alt="" aria-hidden="true" />
+        <span>BugMe</span>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#features">Features</a>
+        <a href="./index.html#cta">Get started</a>
+      </nav>
+    </header>
+
+    <div class="policy-wrap">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: April 19, 2026</p>
+
+      <p>
+        This Privacy Policy describes how BugMe ("the Extension") handles data collected during its use.
+        BugMe is a Chrome extension that records browser interactions and diagnostic data to help users
+        create structured bug reports in Azure DevOps.
+      </p>
+
+      <h2>1. Data we collect</h2>
+      <p>BugMe collects the following data during an active, user-initiated recording session:</p>
+      <ul>
+        <li><strong>User activity</strong> — clicks, text inputs, page navigation events, and scroll actions captured as reproduction steps.</li>
+        <li><strong>Website content</strong> — browser console log messages and network request details (URL, HTTP method, status code, duration) from the active tab.</li>
+        <li><strong>Screenshots</strong> — point-in-time PNG screenshots of the active tab, taken only when explicitly requested by the user.</li>
+        <li><strong>Browser environment</strong> — Chrome version, screen dimensions, window dimensions, device pixel ratio, and page URL at the time of capture.</li>
+        <li><strong>Authentication information</strong> — your Azure DevOps Personal Access Token (PAT) and organisation URL, stored locally for API authentication.</li>
+      </ul>
+
+      <h2>2. How we use your data</h2>
+      <p>
+        All collected data is used exclusively to fulfil the single purpose of BugMe: creating a documented
+        Bug work item in your Azure DevOps organisation. Specifically:
+      </p>
+      <ul>
+        <li>Reproduction steps, environment details, and screenshots are submitted to your Azure DevOps work item via the official ADO REST API using your own PAT.</li>
+        <li>Console and network diagnostic data is posted as a comment on the same work item.</li>
+        <li>Your PAT and organisation URL are used only to authenticate API calls to your Azure DevOps instance.</li>
+      </ul>
+      <p>BugMe does not use your data for advertising, analytics, profiling, or any purpose unrelated to bug report creation.</p>
+
+      <h2>3. Data storage</h2>
+      <ul>
+        <li>Bug report data (actions, metadata) is persisted in <code>chrome.storage.local</code> on your device only.</li>
+        <li>Your ADO configuration (organisation URL and PAT) is stored in <code>chrome.storage.local</code> on your device only.</li>
+        <li>Active recording state is held in <code>chrome.storage.session</code> and cleared when the browser session ends.</li>
+        <li>Screenshots are stored in IndexedDB (BugMeDB) on your device only.</li>
+      </ul>
+      <p>No data is stored on any external server operated by BugMe.</p>
+
+      <h2>4. Data sharing and transfer</h2>
+      <p>
+        BugMe does not sell, rent, trade, or transfer your data to any third party. The only external
+        transmission of data is from your browser directly to your own Azure DevOps organisation when you
+        explicitly click "Create Bug in ADO". This transmission is made using your own credentials to your
+        own account.
+      </p>
+
+      <h2>5. Data retention and deletion</h2>
+      <p>
+        All captured data remains on your device in browser storage. You can delete individual bug reports
+        or all history at any time from within the extension. Uninstalling BugMe removes all extension
+        storage from your browser.
+      </p>
+
+      <h2>6. Permissions</h2>
+      <p>BugMe requests the following Chrome permissions and uses them only as described:</p>
+      <ul>
+        <li><strong>activeTab</strong> — to take screenshots of the current tab on explicit user request.</li>
+        <li><strong>debugger</strong> — to capture console messages and network requests via the Chrome Debugger Protocol during an active session.</li>
+        <li><strong>scripting</strong> — to inject the content script into the active tab when a recording session starts.</li>
+        <li><strong>storage</strong> — to persist bug reports, ADO configuration, and recording state on your device.</li>
+        <li><strong>tabs</strong> — to broadcast live recording state updates to the extension popup.</li>
+        <li><strong>host_permissions (&lt;all_urls&gt;)</strong> — to allow capture on any website the user chooses to test.</li>
+      </ul>
+
+      <h2>7. Security</h2>
+      <p>
+        Your PAT is stored only in <code>chrome.storage.local</code> on your machine and is never
+        transmitted to any server other than your own Azure DevOps API endpoint. BugMe does not log,
+        cache, or expose your PAT in any other way.
+      </p>
+
+      <h2>8. Children's privacy</h2>
+      <p>
+        BugMe is intended for use by software development and QA professionals. It is not directed at
+        children under the age of 13 and does not knowingly collect data from children.
+      </p>
+
+      <h2>9. Changes to this policy</h2>
+      <p>
+        If this Privacy Policy is updated, the revised version will be published at this URL with an
+        updated date. Continued use of the extension after changes constitutes acceptance of the updated
+        policy.
+      </p>
+
+      <h2>10. Contact</h2>
+      <p>
+        For questions about this Privacy Policy, open an issue on the
+        <a href="https://github.com/Chamalasela/BugMe" target="_blank" rel="noreferrer">BugMe GitHub repository</a>.
+      </p>
+    </div>
+
+    <footer class="site-footer">
+      <p>BugMe by Chamalasela</p>
+      <a href="https://github.com/Chamalasela/BugMe" target="_blank" rel="noreferrer">Project repository</a>
+    </footer>
+  </body>
+</html>
