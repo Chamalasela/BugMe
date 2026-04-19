@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BugMe records every reproduction step and creates complete Azure DevOps bug reports with screenshots, console logs, and network diagnostics."
+    />
+    <title>BugMe | Stop Writing Bug Reports Manually</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="./assets/ladybug-bugme.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape shape-one" aria-hidden="true"></div>
+    <div class="bg-shape shape-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="BugMe homepage">
+        <img class="brand-mark" src="./assets/ladybug-bugme.png" alt="" aria-hidden="true" />
+        <span>BugMe</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#workflow">How it works</a>
+        <a href="#why">Why BugMe</a>
+        <a href="#cta">Get started</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <p class="eyebrow">Chrome Extension for QA and Dev Teams</p>
+            <h1>Record the bug once. Ship a complete report in seconds.</h1>
+            <p class="hero-copy">
+              BugMe captures clicks, inputs, navigation, screenshots, console output, and network activity while you reproduce an issue, then submits a fully documented Azure DevOps Bug work item.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://chromewebstore.google.com/" target="_blank" rel="noreferrer">Install from Chrome Web Store</a>
+              <a class="btn btn-ghost" href="https://github.com/Chamalasela/BugMe" target="_blank" rel="noreferrer">View on GitHub</a>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-label="BugMe mascot preview">
+            <img src="./assets/ladybug-bugme.png" alt="BugMe ladybug mascot" />
+            <p>Your bug report copilot for reproducible evidence.</p>
+          </aside>
+        </div>
+
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <ul class="hero-stats" aria-label="Quick value points">
+          <li><strong>1 shortcut</strong><span>Alt+Shift+R to start or stop capture</span></li>
+          <li><strong>0 manual steps</strong><span>Actions are auto-written as readable repro steps</span></li>
+          <li><strong>Full diagnostics</strong><span>Console and network data attached to every report</span></li>
+        </ul>
+      </section>
+
+      <section class="problem reveal">
+        <h2>Bug reporting should not steal engineering time</h2>
+        <p>
+          Most bug tickets miss context, skip steps, or leave out technical evidence. BugMe fixes that by observing the entire repro journey in the browser and packaging everything your team needs to triage quickly.
+        </p>
+      </section>
+
+      <section id="features" class="features reveal">
+        <h2>Core features that matter in real debugging</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Automatic step capture</h3>
+            <p>Records clicks, text inputs, page navigation, and scrolling as human-readable reproduction steps.</p>
+          </article>
+          <article class="card">
+            <h3>Screenshots on demand</h3>
+            <p>Capture timestamped screenshots during the session and attach them directly to the bug work item.</p>
+          </article>
+          <article class="card">
+            <h3>Console and network diagnostics</h3>
+            <p>Collects browser console messages plus request status and timing, with failures clearly highlighted.</p>
+          </article>
+          <article class="card">
+            <h3>Direct Azure DevOps submission</h3>
+            <p>Creates a Bug with title, repro steps, environment details, attachments, and diagnostic comment in one flow.</p>
+          </article>
+          <article class="card">
+            <h3>Pause and resume safely</h3>
+            <p>Pause capture during sensitive moments, then continue without losing your session progress.</p>
+          </article>
+          <article class="card">
+            <h3>History and re-submission</h3>
+            <p>Review previous captures, re-submit unresolved issues, or clean up completed reports from history.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="workflow reveal">
+        <h2>How BugMe works</h2>
+        <ol>
+          <li>
+            <h3>Start capture</h3>
+            <p>Open BugMe and begin recording, or use Alt+Shift+R from any active tab.</p>
+          </li>
+          <li>
+            <h3>Reproduce naturally</h3>
+            <p>Perform the bug flow while BugMe logs actions and optional screenshots in the background.</p>
+          </li>
+          <li>
+            <h3>Stop and review</h3>
+            <p>End the session to review action count, screenshot count, and diagnostics before submission.</p>
+          </li>
+          <li>
+            <h3>Create the ADO bug</h3>
+            <p>Select project and paths, submit once, and share the generated work item URL immediately.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="why" class="why reveal">
+        <h2>Built for teams already using Azure DevOps</h2>
+        <ul>
+          <li>Works with your existing ADO organization, project, area path, and iteration path setup</li>
+          <li>Uses PAT-based authentication with Work Items Read and Write scope</li>
+          <li>Keeps capture data local in browser storage until you choose to submit</li>
+        </ul>
+      </section>
+
+      <section id="cta" class="cta reveal">
+        <h2>Make every bug report actionable from the first ticket</h2>
+        <p>Install BugMe, connect your Azure DevOps workspace, and turn bug reproduction into structured evidence.</p>
+        <a class="btn btn-primary" href="https://chromewebstore.google.com/" target="_blank" rel="noreferrer">Install BugMe</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>BugMe by Chamalasela</p>
+      <a href="https://github.com/Chamalasela/BugMe" target="_blank" rel="noreferrer">Project repository</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
