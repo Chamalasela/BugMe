@@ -297,6 +297,42 @@ h2 {
   gap: 14px;
 }
 
+.screenshots-copy {
+  max-width: 760px;
+  color: var(--text-muted);
+  font-size: 1.03rem;
+}
+
+.screenshot-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.screenshot-card {
+  grid-column: span 4;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 251, 244, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.screenshot-card figcaption {
+  padding: 12px 14px 14px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
 .card {
   grid-column: span 6;
   border: 1px solid var(--line);
@@ -418,6 +454,10 @@ h2 {
   }
 
   .card {
+    grid-column: span 12;
+  }
+
+  .screenshot-card {
     grid-column: span 12;
   }
 
