@@ -303,16 +303,25 @@ h2 {
   font-size: 1.03rem;
 }
 
+.screenshots-hint {
+  margin: 8px 0 0;
+  color: var(--brand-deep);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .screenshot-grid {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  align-items: start;
 }
 
 .screenshot-card {
-  grid-column: span 4;
-  margin: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 320px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -323,8 +332,12 @@ h2 {
 .screenshot-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 200px;
   object-fit: cover;
+}
+
+.screenshot-image {
+  cursor: zoom-in;
 }
 
 .screenshot-card figcaption {
@@ -434,6 +447,44 @@ h2 {
   transform: translateY(0);
 }
 
+.screenshot-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.82);
+  z-index: 40;
+}
+
+.screenshot-lightbox.open {
+  display: flex;
+}
+
+.lightbox-image {
+  width: min(1100px, 94vw);
+  max-height: 88vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  background: #111;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 @keyframes drift {
   0%,
   100% {
@@ -458,7 +509,7 @@ h2 {
   }
 
   .screenshot-card {
-    grid-column: span 12;
+    max-width: 380px;
   }
 
   .workflow ol {

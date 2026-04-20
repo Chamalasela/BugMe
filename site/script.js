@@ -37,3 +37,43 @@ if ('IntersectionObserver' in window && revealElements.length > 0) {
 } else {
   revealElements.forEach((element) => element.classList.add('is-visible'));
 }
+
+const screenshotImages = document.querySelectorAll('.screenshot-image');
+const lightbox = document.querySelector('.screenshot-lightbox');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.setAttribute('src', '');
+  lightboxImage.setAttribute('alt', '');
+}
+
+if (screenshotImages.length > 0 && lightbox && lightboxImage && lightboxClose) {
+  screenshotImages.forEach((image) => {
+    image.addEventListener('click', () => {
+      const src = image.getAttribute('src');
+      const alt = image.getAttribute('alt') || 'Expanded screenshot';
+      if (!src) return;
+      lightboxImage.setAttribute('src', src);
+      lightboxImage.setAttribute('alt', alt);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+}

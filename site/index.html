@@ -109,17 +109,18 @@
         <p class="screenshots-copy">
           A quick preview of the capture workflow, diagnostics visibility, and submission experience.
         </p>
+        <p class="screenshots-hint">Tip: click any screenshot to view it larger.</p>
         <div class="screenshot-grid">
           <figure class="screenshot-card">
-            <img src="./assets/bugme-screen-1.jpg" alt="BugMe interface showing capture controls and recent bug entries" loading="lazy" />
+            <img class="screenshot-image" src="./assets/bugme-screen-1.jpg" alt="BugMe interface showing capture controls and recent bug entries" loading="lazy" />
             <figcaption>Start and manage capture sessions from a focused, lightweight popup.</figcaption>
           </figure>
           <figure class="screenshot-card">
-            <img src="./assets/bugme-screen-2.jpg" alt="BugMe view showing recorded bug steps and diagnostics counters" loading="lazy" />
+            <img class="screenshot-image" src="./assets/bugme-screen-2.jpg" alt="BugMe view showing recorded bug steps and diagnostics counters" loading="lazy" />
             <figcaption>Track steps, screenshots, and diagnostic signal while reproducing issues.</figcaption>
           </figure>
           <figure class="screenshot-card">
-            <img src="./assets/bugme-screen-3.jpg" alt="BugMe submit view for creating Azure DevOps bug work items" loading="lazy" />
+            <img class="screenshot-image" src="./assets/bugme-screen-3.jpg" alt="BugMe submit view for creating Azure DevOps bug work items" loading="lazy" />
             <figcaption>Review data and submit a structured Azure DevOps bug report in one flow.</figcaption>
           </figure>
         </div>
@@ -170,6 +171,11 @@
         <a href="./privacy.html">Privacy Policy</a>
       </div>
     </footer>
+
+    <div class="screenshot-lightbox" aria-hidden="true" role="dialog" aria-label="Expanded screenshot view">
+      <button class="lightbox-close" type="button" aria-label="Close image">Close</button>
+      <img class="lightbox-image" src="" alt="" />
+    </div>
 
     <script src="./script.js"></script>
   </body>
